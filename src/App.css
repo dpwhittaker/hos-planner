@@ -1,33 +1,106 @@
-.App {
+html, body, #root, .app-container {
+  height: 100%
+}
+
+/* Hide HTML5 Up and Down arrows. */
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.team-column {
+  width: 20%;
+  float: left;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.hero-column {
+  width: calc(20% - 10px);
+  float: left;
+  border-left: 10px solid gray;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.card {
+  padding: 2px;
+}
+.card p, .card span {
+  font-size: 9px;
+  line-height: 14px;
+}
+.card span.value {
+  font-size: 12px;
+}
+
+.selector {
+  font-size: 12px;
+  line-height: 14px;
+  height: 32px;
+  text-align: center;
+}
+
+.selector > div {
+  font-size: 12px;
+}
+
+.selector input {
+  padding: 2px;
+}
+
+.selector button {
+  padding: 4px;
+}
+
+.green {
+  background-color: #99ff99 !important;
+}
+.blue {
+  background-color: #9999ff !important;
+}
+
+.cost {
+  background-color: #eeeeee !important;
+}
+.heal {
+  background-color: #99ff99 !important;
+}
+.buff {
+  background-color: #9999ff !important;
+}
+.attack {
+  background-color: #ff9999 !important;
+}
+.security, .security span {
+  background-color: #666666 !important;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.curse {
+  background-color: #ffff99 !important;
+}
+.self {
+  background-color: #99ccff !important;
+}
+.info {
+  background-color: #cccccc !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pill {
+  height: 32px;
+  font-size: 14px;
+  line-height: 32px;
+  position: relative;
+}
+
+.pill .badge {
+  position: absolute;
+  right: 0;
 }
