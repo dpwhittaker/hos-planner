@@ -77,14 +77,13 @@ class App extends Component {
 	render() {
 		const {heroes, level, tab = 'team'} = this.state;
 		const slots = Object.keys(heroes);
+		const onChangeLevel = this.onChangeLevel.bind(this);
+		const onChangeSlot = this.onChangeSlot.bind(this);
 		return (
 			<div className="app-container">
 				<MediaQuery query='(min-width:1600px)'>
 				<div className="team-column">
-					<Team heroes={heroes} level={level}
-						onTeamLevel={this.onChangeLevel.bind(this)}
-						onSlot={this.onChangeSlot.bind(this)}
-					/>
+					<Team heroes={heroes} level={level} onTeamLevel={onChangeLevel} onSlot={onChangeSlot}/>
 				</div>
 				{slots.map(slot => (
 					<div key={slot} className="hero-column">
@@ -97,11 +96,11 @@ class App extends Component {
 					<Tabs value={tab} onChange={(e, tab) => this.setState({tab})}>
 						<Tab value='team' label='Team'><Team heroes={heroes}/></Tab>
 						{slots.map(slot => (
-							<Tab key={slot} value={slot} label={Hero}><Hero hero={heroes[slot]}/></Tab>
+							<Tab key={slot} value={slot} label={heroes[slot].hero}><Hero hero={heroes[slot]}/></Tab>
 						))}
 					</Tabs>
-					{tab === 'team' && <Team heroes={heroes}/>}
-					{tab !== 'team' && <Hero slot={tab} hero={heroes[tab]}/>}
+					{tab === 'team' && <Team heroes={heroes} level={level} onTeamLevel={onChangeLevel} onSlot={onChangeSlot}/>}
+					{tab !== 'team' && <Hero slot={tab} hero={heroes[tab]} onChange={hero => this.onChangeHero(tab, hero)}/>}
 				</MediaQuery>
 			</div>
 		);
