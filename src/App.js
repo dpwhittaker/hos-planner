@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
-import { Tabs, Tab } from '@material-ui/core';
+import { Tabs, Tab, AppBar } from '@material-ui/core';
 import Hero from './Hero';
 import Team from './Team';
 import HoSData from './HoSData';
@@ -12,6 +12,7 @@ class App extends Component {
 		super(props);
 		if (window.location.hash) {
 			this.state = JSON.parse(pako.inflate(atob(window.location.hash.replace(/^#/,'')), {to: 'string'}));
+			console.log(this.state);
 		} else {
 			this.state = {
 				heroes: {
@@ -81,24 +82,30 @@ class App extends Component {
 		const onChangeSlot = this.onChangeSlot.bind(this);
 		return (
 			<div className="app-container">
-				<MediaQuery query='(min-width:1600px)'>
-				<div className="team-column">
-					<Team heroes={heroes} level={level} onTeamLevel={onChangeLevel} onSlot={onChangeSlot}/>
-				</div>
-				{slots.map(slot => (
-					<div key={slot} className="hero-column">
-						<Hero slot={slot} hero={heroes[slot]} onChange={hero => this.onChangeHero(slot, hero)}/>
+				<MediaQuery query='(min-width:600px)'>
+					<div className="team-column">
+						<Team heroes={heroes} level={level} onTeamLevel={onChangeLevel} onSlot={onChangeSlot}/>
 					</div>
-				))}
-				<div style={{clear:'both'}}></div>
+					<div className="wide-container">
+						<div className="wide-scroller">
+							{slots.map(slot => (
+								<div key={slot} className="hero-column">
+									<Hero slot={slot} hero={heroes[slot]} onChange={hero => this.onChangeHero(slot, hero)}/>
+								</div>
+							))}
+							<div style={{clear:'both'}}></div>
+						</div>
+					</div>
 				</MediaQuery>
-				<MediaQuery query='(max-width:1599px)'>
-					<Tabs value={tab} onChange={(e, tab) => this.setState({tab})}>
-						<Tab value='team' label='Team'><Team heroes={heroes}/></Tab>
-						{slots.map(slot => (
-							<Tab key={slot} value={slot} label={heroes[slot].hero}><Hero hero={heroes[slot]}/></Tab>
-						))}
-					</Tabs>
+				<MediaQuery query='(max-width:599px)'>
+					<AppBar position="static">
+						<Tabs variant="fullWidth" value={tab} onChange={(e, tab) => this.setState({tab})}>
+							<Tab value='team' label='Team'><Team heroes={heroes}/></Tab>
+							{slots.map(slot => (
+								<Tab key={slot} value={slot} label={heroes[slot].hero}><Hero hero={heroes[slot]}/></Tab>
+							))}
+						</Tabs>
+					</AppBar>
 					{tab === 'team' && <Team heroes={heroes} level={level} onTeamLevel={onChangeLevel} onSlot={onChangeSlot}/>}
 					{tab !== 'team' && <Hero slot={tab} hero={heroes[tab]} onChange={hero => this.onChangeHero(tab, hero)}/>}
 				</MediaQuery>

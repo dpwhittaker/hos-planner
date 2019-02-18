@@ -34,14 +34,10 @@ export default function Team(props) {
 		return buff;
 	}
 	return (
-		<Grid container spacing={8}>
+		<Grid container spacing={0} style={{width:'100%',margin:0}}>
 			{slots.map(slot => (
-				<Grid item xs={3} key={slot}>
+				<Grid item xs={6} key={slot}>
 					<Typography variant="h6">{slot}</Typography>
-				</Grid>
-			))}
-			{slots.map(slot => (
-				<Grid item xs={3} key={slot}>
 					<Select value={heroes[slot].hero} fullWidth={true} onChange={e => onSlot(slot, e.target.value)}>
 						{Object.keys(HoSData[slot]).map(name =>
 							<MenuItem key={name} value={name}>{name}</MenuItem>
@@ -49,23 +45,20 @@ export default function Team(props) {
 					</Select>
 				</Grid>
 			))}
-			<Grid item xs={6}>
-				<Typography variant="h6">Team Level</Typography>
-			</Grid>
-			<Grid item xs={6}>
-				<Selector value={level} min="1" max="64" onChange={onTeamLevel} />
+			<Grid item xs={12}>
+				<Selector title="Team Level" value={level} min="1" max="64" onChange={onTeamLevel} />
 			</Grid>
 			<Grid item xs={12}>
 				{Object.keys(buffs).map(slot =>
-					<Grid container spacing={8} key={slot}>
+					<Grid container spacing={0} key={slot}>
 						<Grid item xs={12}>
 							<Typography variant="h6">{slot}</Typography>
 						</Grid>
 						{Object.keys(buffs[slot]).map(stat =>
-							<Grid item xs={3} key={stat}>
+							<Grid item xs={6} key={stat}>
 								<Paper className={`${{'Curses': 'curse', 'Team Buffs': 'buff'}[slot] || 'self'} card`}>
 									<Typography>
-										<span dangerouslySetInnerHTML={{__html: stat}}/>:&nbsp;
+										<span>{stat}: </span>
 										<span className="value">{buffs[slot][stat]}</span>
 									</Typography>
 								</Paper>

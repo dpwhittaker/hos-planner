@@ -28,8 +28,13 @@ export default function Hero(props) {
 	const ratt = remain('att');
 	const rskl = remain('skl');
 	const rtal = remain('tal');
+	let maxSkill = 16;
+	if (hero.Level >= 30) maxSkill = 18;
+	if (hero.Level >= 40) maxSkill = 20;
+	if (hero.Level >= 50) maxSkill = 22;
+	if (hero.Level >= 60) maxSkill = 25;
 	return (
-		<Grid container spacing={8}>
+		<Grid container spacing={0} style={{width:'100%',margin:0}}>
 			<Grid item xs={4}>
 				<Paper className="green">
 					<Typography variant="h6">{hero.hero}</Typography>
@@ -58,7 +63,7 @@ export default function Hero(props) {
 			</Grid>
 			{Object.keys(hero.skl).map(skill => 
 				<Grid item xs={4} key={skill}>
-					<Selector title={skill} value={hero.skl[skill]} min={data.base.skl[skill]} max={16} remain={rskl} onChange={v => change('skl', skill, v)}/>
+					<Selector title={skill} value={hero.skl[skill]} min={data.base.skl[skill]} max={maxSkill} remain={rskl} onChange={v => change('skl', skill, v)}/>
 				</Grid>
 			)}
 			<Grid item xs={12}>
@@ -66,7 +71,7 @@ export default function Hero(props) {
 			</Grid>
 			<Grid item xs={12}>
 				{Object.keys(hero.tal).map(talent => 
-					<Grid container spacing={8} alignItems="center" style={{opacity: hero.tal[talent] ? 1 : 0.3}} key={talent}>
+					<Grid container spacing={0} alignItems="center" style={{opacity: hero.tal[talent] ? 1 : 0.3}} key={talent}>
 						<Grid item xs={4}>
 							<Selector title={talent} value={hero.tal[talent]} min={data.base.tal[talent]} max={hero.Level >= data.talents[talent].level ? 10 : 0} remain={rtal} onChange={v => change('tal', talent, v)}/>
 							<div style={{textAlign:'center',fontSize:12}}>{data.talents[talent].type}</div>

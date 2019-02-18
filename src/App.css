@@ -14,20 +14,40 @@ input[type="number"] {
 }
 
 .team-column {
-  width: 20%;
-  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 199px;
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  border-right: 1px solid gray;
+}
+.wide-container {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  width: calc(100% - 200px);
+  height: 100%;
+  overflow-x: auto;
+}
+.wide-scroller {
+  height: 100%;
+  min-width: 1079px;
 }
 
 .hero-column {
-  width: calc(20% - 10px);
+  width: 25%;
+  box-sizing: border-box;
+  min-width: 260px;
   float: left;
-  border-left: 10px solid gray;
+  border-left: 1px solid gray;
   overflow-x: hidden;
   overflow-y: auto;
   height: 100%;
+}
+.hero-column:first-child {
+  border-left: none;
 }
 
 .card {
@@ -44,7 +64,6 @@ input[type="number"] {
 .selector {
   font-size: 12px;
   line-height: 14px;
-  height: 32px;
   text-align: center;
 }
 
@@ -57,7 +76,8 @@ input[type="number"] {
 }
 
 .selector button {
-  padding: 4px;
+  padding: 0px;
+  margin-bottom: 10px;
 }
 
 .green {
