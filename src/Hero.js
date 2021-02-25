@@ -28,11 +28,17 @@ export default function Hero(props) {
 	const ratt = remain('att');
 	const rskl = remain('skl');
 	const rtal = remain('tal');
+	// High level characters get higher max skill levels.
 	let maxSkill = 16;
 	if (hero.Level >= 30) maxSkill = 18;
 	if (hero.Level >= 40) maxSkill = 20;
 	if (hero.Level >= 50) maxSkill = 22;
-	if (hero.Level >= 60) maxSkill = 25;
+	if (hero.Level >= 60) maxSkill = 24;
+	// High level characters get higher max attribute levels, but not as much as skills.
+	let maxAttribute = 16
+	if (hero.Level >= 40) maxAttribute = 18;
+	if (hero.Level >= 50) maxAttribute = 20;
+	if (hero.Level >= 60) maxAttribute = 22;
 	return (
 		<Grid container spacing={0} style={{width:'100%',margin:0}}>
 			<Grid item xs={4}>
@@ -55,7 +61,7 @@ export default function Hero(props) {
 			</Grid>
 			{Object.keys(hero.att).map(attribute => 
 				<Grid item xs={4} key={attribute}>
-					<Selector title={attribute} value={hero.att[attribute]} min={data.base.att[attribute]} max={16} remain={ratt} onChange={v => change('att', attribute, v)}/>
+					<Selector title={attribute} value={hero.att[attribute]} min={data.base.att[attribute]} max={maxAttribute} remain={ratt} onChange={v => change('att', attribute, v)}/>
 				</Grid>
 			)}
 			<Grid item xs={12}>

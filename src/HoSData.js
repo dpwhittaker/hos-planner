@@ -24,7 +24,7 @@ const HoSData = {
 				tal: talvkk
 			},
 			base: {
-				HP: 127,
+				HP: 172,
 				SP: 70,
 				att: { Strength: 7, Dexterity: 4, Constitution: 6, Willpower: 5, Intelligence: 3, Knowledge: 3 },
 				skl: { Blades: 3, Hammers: 3, Polearms: 3, Leadership: 1, Lore: 2 },
@@ -202,7 +202,7 @@ const HoSData = {
 				tal: talvkk
 			},
 			base: {
-				HP: 138,
+				HP: 133,
 				SP: 80,
 				att: { Strength: 5, Dexterity: 7, Constitution: 5, Willpower: 3, Intelligence: 4, Knowledge: 4 },
 				skl: { Blades: 4, Thrown: 2, Leadership: 2, Lore: 2, Stealth: 2 },
@@ -408,8 +408,8 @@ const HoSData = {
 			factor: {
 				HP: { Constitution: 16, Level: 8 },
 				SP: { Intelligence: 26, Level: 11 },
-				Toughness: { Constitution: 0.75 },
-				Dodge: { Dexterity: 0.75 },
+				Toughness: { Constitution: 0.5 },
+				Dodge: { Dexterity: 1 },
 				Resistance: { Willpower: 2 }
 			},
 			talents: {
@@ -541,7 +541,8 @@ const HoSData = {
 						Accuracy: [0, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15]
 					},
 					curse: {
-						"Crit Vuln %": [0, 1, 2, 4, 6, 8, 10, 12, 13, 14, 16]
+						"Crit Vuln %": [0, 1, 2, 4, 6, 8, 10, 12, 13, 14, 16],
+						Armor: [0, 0, 0, 0, 0, 0, 0, 2, 4, 6, 8]
 					},
 					info: {
 						range: 6,
@@ -604,7 +605,7 @@ const HoSData = {
 			factor: {
 				HP: { Constitution: 22, Level: 11 },
 				SP: { Intelligence: 22, Level: 8 },
-				Toughness: { Constitution: 0.75 },
+				Toughness: { Constitution: 1 },
 				Dodge: { Dexterity: 0.75 },
 				Resistance: { Willpower: 2 }
 			},
@@ -995,7 +996,7 @@ const HoSData = {
 				tal: talkf
 			},
 			base: {
-				HP: 129,
+				HP: 135,
 				SP: 116,
 				att: { Strength: 5, Dexterity: 4, Constitution: 5, Willpower: 5, Intelligence: 5, Knowledge: 4 },
 				skl: { Hammers: 3, Invocation: 2, Leadership: 2, Lore: 3 },
@@ -1004,7 +1005,7 @@ const HoSData = {
 			factor: {
 				HP: { Constitution: 23, Level: 14 },
 				SP: { Intelligence: 22, Level: 6 },
-				Toughness: { Constitution: 1 },
+				Toughness: { Constitution: 1.25 },
 				Dodge: { Dexterity: 0.75 },
 				Resistance: { Willpower: 1.5 }
 			},
