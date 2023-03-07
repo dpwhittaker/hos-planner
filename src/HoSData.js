@@ -876,6 +876,7 @@ const HoSData = {
 					info: {
 						turns: 3
 					},
+					factor: { }
 				},
 				"Cabal of One": {
 					type: "Self-Only Buff",
@@ -1004,6 +1005,7 @@ const HoSData = {
 					info: {
 						turns: 3
 					}
+					factor: { }
 				},
 				"Hex Web": {
 					type: "Virulant Curse",
