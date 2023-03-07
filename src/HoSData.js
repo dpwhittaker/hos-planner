@@ -840,7 +840,7 @@ const HoSData = {
 						"Earth Resist": [0, 2, 3, 4, 5, 6, 8, 12, 14, 16, 18]
 					},
 					info: {
-						AOE: [0, 4, 4, 4, 4, 4, 4, 4, 6, 6, 6]
+						AOE: [0, 4, 4, 4, 4, 4, 4, 4, 6, 6, 6],
 						turns: 3
 					},
 				},
@@ -872,7 +872,7 @@ const HoSData = {
 						"Spear Accuracy": [0, 2, 3, 4, 5, 6, 7,8, 9, 10, 12],
 						"Strength (dmg)": [0, 2, 2, 3, 3, 4, 4, 5, 5, 6],
 						"Critical %": [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 6]
-					}
+					},
 					info: {
 						turns: 3
 					},
@@ -954,7 +954,7 @@ const HoSData = {
 						"Ice Resist": [0, 0, 2, 3, 4, 5, 6, 8, 12, 14, 16]
 					},
 					info: {
-						range: 4
+						range: 4,
 						turns: [0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
 						AOE: [0, 1, 5, 5, 9, 9, 9, 9, 9, 9, 9],
 						targets: [0, 1, 5, 5, 9, 9, 9, 9, 9, 9, 9]
@@ -968,8 +968,8 @@ const HoSData = {
 					type: "Death Curse",
 					level: 6,
 					cost: {
-						AP: 3
-						SP: [0, 5, 9, 13, 17, 21, 25. 30. 34. 38. 42]
+						AP: 3,
+						SP: [0, 5, 9, 13, 17, 21, 25, 30, 34, 38, 42]
 					},
 					curse: {
 						AP: [0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
@@ -1041,6 +1041,7 @@ const HoSData = {
 						turns: { Lore: 1 }
 					}
 				}
+			}
 		},
 		Kyera: {
 			title: "Cleric",
