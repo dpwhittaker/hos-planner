@@ -805,7 +805,7 @@ const HoSData = {
 			base: {
 				att: { Strength: 4, Dexterity: 3, Constitution: 4, Willpower: 5, Intelligence: 6, Knowledge: 6 },
 				skl: { Polearms: 2, Sorcery: 3, Conjuring: 2, Lore: 2, Stealth: 2 },
-				tal: { "Skewer": 1, "Bones of the Earth": 1, "Occult Calling": 1, "Malediction": 0, "Cabal of One": 0, "Blinding Strike": 0, "Quagmire": 0, "Leyline Gravity": 0, "Preternatural Speed": 0, "Lifeforce Regeneration": 0 }
+				tal: { "Skewer": 1, "Bones of the Earth": 1, "Occult Calling": 1, "Malediction": 0, "Cabal of One": 0, "Blinding Strike": 0, "Quagmire": 0, "Leyline Gravity": 0, "Preternatural Speed": 0, "Lifeforce Regeneration": 0, "Edgescatter": 0 }
 			},
 			factor: {
 				HP: { Constitution: 20, Level: 12 },
@@ -827,6 +827,22 @@ const HoSData = {
 						"Critical %": [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12],
 					},
 					factor: {}
+				},
+				"Edgescatter": {
+					type: "Cursing Melee/Thrown Spear Attack",
+					level: 12,
+					cost: {
+						AP: "W",
+						SP: [0, 8, 12, 18, 24, 30, 36, 42, 50, 58, 64]
+					},
+					curse: {
+						"Ice Resist": [0, 2, 3, 4, 5, 6, 8, 12, 14, 16, 18],
+						"Earth Resist": [0, 2, 3, 4, 5, 6, 8, 12, 14, 16, 18]
+					},
+					info: {
+						AOE: [0, 4, 4, 4, 4, 4, 4, 4, 6, 6, 6]
+						turns: 3
+					},
 				},
 				"Bones of the Earth": {
 					type: "Heal",
@@ -853,9 +869,7 @@ const HoSData = {
 					},
 					self: {
 						"Spear Range": [0, 2, 2, 3, 3, 4, 4, 4, 5, 5, 6],
-						Accuracy: [0, 2, 3, 4, 5, 6, 7,8, 9, 10, 12],
-						Damage: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
-						"All Melee Skills": [0, 2, 2, 3, 3, 4, 4, 5, 5, 6],
+						"Spear Accuracy": [0, 2, 3, 4, 5, 6, 7,8, 9, 10, 12],
 						"Strength (dmg)": [0, 2, 2, 3, 3, 4, 4, 5, 5, 6],
 						"Critical %": [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 6]
 					}
@@ -928,44 +942,51 @@ const HoSData = {
 					type: "Curse",
 					level: 3,
 					cost: {
-						AP: [0, 3, ?],
-						SP: [0, 6, ?]
+						AP: 3,
+						SP: [0, 6, 10, 14, 18, 23, 28, 34, 38, 42, 48]
 					},
 					curse: {
-						Parry: [0, 2, ?],
-						Dodge: [0, 2, ?],
-						Armor: [0, 2, ?]
+						Parry: [0, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7],
+						Dodge: [0, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7],
+						Armor: [0, 2, 3, 4, 5, 7, 8, 9, 10, 12, 14],
+						"Unholy Resist": [0, 0, 2, 3, 4, 5, 6, 8, 12, 14, 16],
+						"Earth Resist": [0, 0, 2, 3, 4, 5, 6, 8, 12, 14, 16],
+						"Ice Resist": [0, 0, 2, 3, 4, 5, 6, 8, 12, 14, 16]
 					},
 					info: {
-						range: [0, 4, ?],
-						turns: ?
+						range: 4
+						turns: [0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+						AOE: [0, 1, 5, 5, 9, 9, 9, 9, 9, 9, 9],
+						targets: [0, 1, 5, 5, 9, 9, 9, 9, 9, 9, 9]
 					},
 					factor: {
-						turns: { Invocation: 1 }
+						turns: { Conjuring: 1 },
+						targets: { Sorcery: [0, 1, 5, 5, 9, 9, 9, 9, 9, 9, 9] }
 					}
 				},
 				"Quagmire": {
 					type: "Death Curse",
 					level: 6,
 					cost: {
-						AP: [0, ?],
-						SP: [0, ?]
+						AP: 3
+						SP: [0, 5, 9, 13, 17, 21, 25. 30. 34. 38. 42]
 					},
 					curse: {
-						AP: [0, ?],
-						Parry: [0, ?],
-						Dodge: [0, ?],
+						AP: [0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2],
+						Parry: [0, 1, 2, 3, 4, 4, 5, 6, 8, 10, 12],
+						Dodge: [0, 1, 2, 3, 4, 4, 5, 6, 8, 10, 12],
 						"On Death AP": [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 					},
 					info: {
-						"Death Radius": [0, ?],
-						"Death Curse Turns": [0, ?],
+						range: [0, 5, 5, 5, 5, 5, 5, 6, 6, 6, 7],
+						"Death Radius": [0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 5],
+						"Death Curse Turns": [0, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3],
 						turns: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-						targets: [0, ?]
+						targets: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 					},
 					factor: {
 						turns: { Conjuring: 1 },
-						targets: { Conjuring: [0, ?] }
+						targets: { Conjuring: [0, 5, 5, 5, 5, 5, 9, 9, 9, 9, 9] }
 					},
 				},
 				"Blinding Strike": {
@@ -988,15 +1009,15 @@ const HoSData = {
 					type: "Virulant Curse",
 					level: 0,
 					cost: {
-						AP: [0, 3, 3, 3, 3, 3, 3, ?],
-						SP: [0, 8, 12, 18, 24, 30, 36, ?],
+						AP: 3,
+						SP: [0, 8, 12, 18, 24, 30, 36, 42, 50, 58, 64],
 					},
       					info: {
-						range: [0, 4, 5, 5, 5, 5, 5, ?],
-						spread: [0, 1, 1, 2, 2, 2, 3, ?],
-						AOE: [0, 5, 5, 9, 9, 9, 13, ?]
+						range: [0, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6],
+						spread: [0, 1, 1, 2, 2, 2, 3, 3, 4, 4, 4],
+						turns: [0, 1, 2, 2, 3, 4, 4, 4, 4, 5, 5]
 					},
-					factor: { targets: { Lore: [0, 5, 5, 9, 9, 9, 13, ?] } } 
+					factor: { targets: { Lore: [0, 1, 1, 2, 2, 2, 3, 3, 4, 4, 4] } } 
 				},
 				"Malediction": {
 					type: "Death-Curse",
@@ -1019,7 +1040,7 @@ const HoSData = {
 					factor: {
 						turns: { Lore: 1 }
 					}
-				},
+				}
 		},
 		Kyera: {
 			title: "Cleric",
