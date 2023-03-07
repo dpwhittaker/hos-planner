@@ -795,6 +795,164 @@ const HoSData = {
 		}
 	},
 	Healer: {
+		Syvana: {
+			title: "Witch",
+			levels: {
+				att: attvkk,
+				skl: sklvkk,
+				tal: talvkk
+			},
+			base: {
+				att: { Strength: 4, Dexterity: 3, Constitution: 4, Willpower: 5, Intelligence: 6, Knowledge: 6 },
+				skl: { Polearms: 2, Sorcery: 3, Conjuring: 2, Lore: 2, Stealth: 2 },
+				tal: { "Skewer": 1, "Bones of the Earth": 1, "Occult Calling": 1, "Malediction": 0, "Cabal of One": 0, "Blinding Strike": 0, "Quagmire": 0, "Leyline Gravity": 0, "Preternatural Speed": 0, "Lifeforce Regeneration": 0 }
+			},
+			factor: {
+				HP: { Constitution: 20, Level: 12 },
+				SP: { Intelligence: 24, Level: 8 },
+				Toughness: { Constitution: 1 },
+				Dodge: { Dexterity: 1 },
+				Resistance: { Willpower: 1.5 }
+			},
+			talents: {
+				"Skewer": {
+					type: "Empowered Melee/Thrown Attack",
+					level: 0,
+					cost: {
+						AP: "W",
+						SP: [0, 8, 12, 18, 24, 30, ?]
+					},
+					attack: {
+						"Earth Dmg": [0, 4, 12, 18, 26, 34, ?],
+						"Critical %": [0, 1, 2, 3, 4, 5, ?],
+					},
+					factor: {}
+				},
+				"Bones of the Earth": {
+					type: "Heal",
+					level: 0,
+					cost: {
+						AP: "3",
+						SP: [0, 8, 12, 18, 24, 30, ?]
+					},
+					heal: {
+						Heal: [0, 28, 56, 112, 160, 220, ?],
+						Dispel: 1
+					},
+					info: {
+						range: 4
+					},
+					factor: { Heal: { Lore: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] } }
+				},
+				"Occult Calling": {
+					type: "Self-Only Buff",
+					level: 0,
+					cost: {
+						AP: [0, 3, 3, 3, 3, 3, ?],
+						SP: [0, 6, 10, 14, 18, 23, ?]
+					},
+					self: {
+						"Spear Range": [0, 2, 2, 3, 3, 4, ?],
+						Accuracy: [0, 2, 3, 4, 5, 6, ?],
+						Damage: [0, 2, 4, 6, 8, 10, ?],
+						"All Melee Skills": [0, 2, 2, 3, 3, 4, ?],
+						"Strength (dmg)": [0, 2, 2, 3, 3, 4, ?],
+						"Critical %": [0, 1, 1, 2, 2, 3, ?]
+					}
+					info: {
+						turns: [0, 3, 3, 3, 3, 3, ?]
+					},
+				},
+				"Cabal of One": {
+					type: "Self-Only Buff",
+					level: 0,
+					cost: {
+						AP: [0, 3, ?],
+						SP: [0, 8, ?]
+					},
+					self: {
+						"Earth Dmg": [0, 3, ?],
+						"Armor": [0, 2, ?],
+						"SP Drain %": [0, 2, ?]
+					},
+					info: {
+						turns: ?
+					},
+					factor: turns: { Lore: 1 }
+				},
+				"Preternatural Speed": {
+					type: "Buff",
+					level: 0,
+					cost: {
+						AP: [0, 3, ?],
+						SP: [0, 6, ?]
+					},
+					buff: {
+						Accuracy: [0, 1, ?],
+						"Earth Dmg": [0, 4, ?],
+						Dodge: [0, 2, ?]
+					},
+					info: {
+						turns: ?,
+						AOE: [0, 5, ?]
+					},
+					factor: {
+						turns: { Conjuring: 1 },
+						targets: { Conjuring: [0, 5, ?] }
+					},
+				},
+				"Blinding Strike": {
+					type: "Cursing Melee/Thrown Spear Attack",
+					level: 0,
+					cost: {
+						AP: "W",
+						SP: [0, 8, ?]
+					},
+					curse: {
+						Accuracy: [0, 3, ?]
+						Damage: [0, 8, ?]
+					},
+					info: {
+						turns: [0, 3, ?]
+					}
+				},
+				"Hex Web": {
+					type: "Virulant Curse",
+					level: ?,
+					cost: {
+						AP: [0, 3, 3, 3, 3, 3, 3, ?],
+						SP: [0, 8, 12, 18, 24, 30, 36, ?],
+					},
+      					info: {
+						range: [0, 4, 5, 5, 5, 5, 5, ?],
+						spread: [0, 1, 1, 2, 2, 2, 3, ?],
+						AOE: [0, 5, 5, 9, 9, 9, 13, ?]
+					},
+					factor: { targets: { Lore: [0, 5, 5, 9, 9, 9, 13, ?] } } 
+				},
+				"Malediction": {
+					type: "Death-Curse",
+					level: 0,
+					cost: {
+						AP: "1",
+						SP: [0, 10, 18, 26, 34, 42, 50, 58, 66, 74, 82]
+					},
+					curse: {
+						Damage: [0, 2, 4, 6, 8, 12, 16, 20, 24, 28, 32],
+						"Earth Resist": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12],
+						"On-Death Damage": [0, 8, 16, 32, 64, 128, 156, 186, 256, 300, 362]
+					},
+					info: {
+						range: [0, 5, 5, 5, 5, 5, 5, 6, 6, 6, 7],
+						turns: 3,
+						targets: 1,
+						"Death Radius": [0, 1, 1, 2, 2, 3, 3, 3, 3, 3, 3]
+					},
+					factor: {
+						turns: { Lore: 1 }
+					}
+				},
+		},
 		Kyera: {
 			title: "Cleric",
 			levels: {
