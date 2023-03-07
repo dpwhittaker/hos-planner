@@ -820,11 +820,11 @@ const HoSData = {
 					level: 0,
 					cost: {
 						AP: "W",
-						SP: [0, 8, 12, 18, 24, 30, ?]
+						SP: [0, 8, 12, 18, 24, 30, 36, 42, 50, 58, 64]
 					},
 					attack: {
-						"Earth Dmg": [0, 4, 12, 18, 26, 34, ?],
-						"Critical %": [0, 1, 2, 3, 4, 5, ?],
+						"Earth Dmg": [0, 4, 12, 18, 26, 34, 46, 56, 66, 78, 90],
+						"Critical %": [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12],
 					},
 					factor: {}
 				},
@@ -833,14 +833,14 @@ const HoSData = {
 					level: 0,
 					cost: {
 						AP: "3",
-						SP: [0, 8, 12, 18, 24, 30, ?]
+						SP: [0, 8, 12, 18, 24, 30, 36, 42, 50, 58, 64]
 					},
 					heal: {
-						Heal: [0, 28, 56, 112, 160, 220, ?],
+						Heal: [0, 28, 56, 112, 160, 220, 280, 340, 420, 520, 700],
 						Dispel: 1
 					},
 					info: {
-						range: 4
+						range: [0, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5]
 					},
 					factor: { Heal: { Lore: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] } }
 				},
@@ -848,57 +848,124 @@ const HoSData = {
 					type: "Self-Only Buff",
 					level: 0,
 					cost: {
-						AP: [0, 3, 3, 3, 3, 3, ?],
-						SP: [0, 6, 10, 14, 18, 23, ?]
+						AP: 3,
+						SP: [0, 6, 10, 14, 18, 23, 28, 34, 38, 42, 48]
 					},
 					self: {
-						"Spear Range": [0, 2, 2, 3, 3, 4, ?],
-						Accuracy: [0, 2, 3, 4, 5, 6, ?],
-						Damage: [0, 2, 4, 6, 8, 10, ?],
-						"All Melee Skills": [0, 2, 2, 3, 3, 4, ?],
-						"Strength (dmg)": [0, 2, 2, 3, 3, 4, ?],
-						"Critical %": [0, 1, 1, 2, 2, 3, ?]
+						"Spear Range": [0, 2, 2, 3, 3, 4, 4, 4, 5, 5, 6],
+						Accuracy: [0, 2, 3, 4, 5, 6, 7,8, 9, 10, 12],
+						Damage: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
+						"All Melee Skills": [0, 2, 2, 3, 3, 4, 4, 5, 5, 6],
+						"Strength (dmg)": [0, 2, 2, 3, 3, 4, 4, 5, 5, 6],
+						"Critical %": [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 6]
 					}
 					info: {
-						turns: [0, 3, 3, 3, 3, 3, ?]
+						turns: 3
 					},
 				},
 				"Cabal of One": {
 					type: "Self-Only Buff",
 					level: 0,
 					cost: {
-						AP: [0, 3, ?],
-						SP: [0, 8, ?]
+						AP: [0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+						SP: [0, 8, 12, 18, 24, 30, 36, 42, 50, 58, 64]
 					},
 					self: {
-						"Earth Dmg": [0, 3, ?],
-						"Armor": [0, 2, ?],
-						"SP Drain %": [0, 2, ?]
+						"Earth Dmg": [0, 3, 4, 5, 7, 9, 12, 15, 18, 21, 24],
+						"Armor": [0, 2, 3, 4, 6, 8, 10, 12, 14, 16, 18],
+						"SP Drain %": [0, 2, 3, 4, 6, 8, 10, 12, 14, 16, 18]
 					},
 					info: {
-						turns: ?
+						turns: 3
 					},
-					factor: turns: { Lore: 1 }
+					factor: { turns: { Lore: 1 } }
 				},
 				"Preternatural Speed": {
 					type: "Buff",
 					level: 0,
 					cost: {
-						AP: [0, 3, ?],
-						SP: [0, 6, ?]
+						AP: 3,
+						SP: [0, 6, 9, 14, 18, 23, 28, 33, 37, 42, 46]
 					},
 					buff: {
-						Accuracy: [0, 1, ?],
-						"Earth Dmg": [0, 4, ?],
-						Dodge: [0, 2, ?]
+						Accuracy: [0, 1, 2, 3, 4, 4, 5, 5, 6, 7, 8],
+						"Earth Dmg": [0, 4, 6, 9, 13, 16, 19, 22, 25, 29, 36],
+						Dodge: [0, 2, 3, 4, 5, 6, 7, 9, 11, 13, 15]
 					},
 					info: {
-						turns: ?,
-						AOE: [0, 5, ?]
+						turns: 3,
+						range: 4,
+						AOE: [0, 5, 5, 5, 5, 5, 9, 9, 9, 9, 9]
 					},
 					factor: {
 						turns: { Conjuring: 1 },
-						targets: { Conjuring: [0, 5, ?] }
+						targets: { Conjuring: [0, 5, 5, 5, 5, 5, 9, 9, 9, 9, 9] }
+					},
+				},
+				"Lifeforce Regeneration": {
+					type: "Death-Curse",
+					level: 0,
+					cost: {
+						AP: 3,
+						SP: [0, 10, 18, 26, 34, 42, 50, 58, 66, 74, 82]
+					},
+					curse: {
+						Aromr: [0, 1, 2, 3, 4, 6, 8, 10, 12, 14, 16],
+						"Fire Resist": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12],
+						"On-Death Heal": [0, 8, 16, 32, 48, 64, 78, 96, 120, 160, 200]
+					},
+					info: {
+						turns: 3,
+						range: [0, 5, 5, 5, 5, 5, 5, 6, 6, 6, 7],
+						AOE: [0, 1, 5, 5, 5, 9, 9, 9, 9, 9, 13],
+						"Death Radius": [0, 1, 2, 2, 2, 3, 3, 4, 4, 4, 5]
+					},
+					factor: {
+						turns: { Conjuring: 1 }
+					}
+				},
+				"Leyline Gravity": {
+					type: "Curse",
+					level: 3,
+					cost: {
+						AP: [0, 3, ?],
+						SP: [0, 6, ?]
+					},
+					curse: {
+						Parry: [0, 2, ?],
+						Dodge: [0, 2, ?],
+						Armor: [0, 2, ?]
+					},
+					info: {
+						range: [0, 4, ?],
+						turns: ?
+					},
+					factor: {
+						turns: { Invocation: 1 }
+					}
+				},
+				"Quagmire": {
+					type: "Death Curse",
+					level: 6,
+					cost: {
+						AP: [0, ?],
+						SP: [0, ?]
+					},
+					curse: {
+						AP: [0, ?],
+						Parry: [0, ?],
+						Dodge: [0, ?],
+						"On Death AP": [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+					},
+					info: {
+						"Death Radius": [0, ?],
+						"Death Curse Turns": [0, ?],
+						turns: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+						targets: [0, ?]
+					},
+					factor: {
+						turns: { Conjuring: 1 },
+						targets: { Conjuring: [0, ?] }
 					},
 				},
 				"Blinding Strike": {
@@ -906,19 +973,20 @@ const HoSData = {
 					level: 0,
 					cost: {
 						AP: "W",
-						SP: [0, 8, ?]
+						SP: [0, 8, 12, 18, 24, 30, 36, 42, 50, 58, 64]
 					},
 					curse: {
-						Accuracy: [0, 3, ?]
-						Damage: [0, 8, ?]
+						Accuracy: [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13],
+						Damage: [0, 8, 10, 14, 18, 20, 24, 26, 30, 34, 40],
+						AP: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
 					},
 					info: {
-						turns: [0, 3, ?]
+						turns: 3
 					}
 				},
 				"Hex Web": {
 					type: "Virulant Curse",
-					level: ?,
+					level: 0,
 					cost: {
 						AP: [0, 3, 3, 3, 3, 3, 3, ?],
 						SP: [0, 8, 12, 18, 24, 30, 36, ?],
