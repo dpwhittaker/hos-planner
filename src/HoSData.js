@@ -805,7 +805,7 @@ const HoSData = {
 			base: {
 				att: { Strength: 4, Dexterity: 3, Constitution: 4, Willpower: 5, Intelligence: 6, Knowledge: 6 },
 				skl: { Polearms: 2, Sorcery: 3, Conjuring: 2, Lore: 2, Stealth: 2 },
-				tal: { "Skewer": 1, "Bones of the Earth": 1, "Occult Calling": 1, "Malediction": 0, "Cabal of One": 0, "Blinding Strike": 0, "Quagmire": 0, "Leyline Gravity": 0, "Preternatural Speed": 0, "Lifeforce Regeneration": 0, "Edgescatter": 0 }
+				tal: { "Skewer": 1, "Bones of the Earth": 1, "Occult Calling": 1, "Malediction": 0, "Cabal of One": 0, "Blinding Strike": 0, "Quagmire": 0, "Leyline Gravity": 0, "Preternatural Speed": 0, "Lifeforce Regeneration": 0, "Edgescatter": 0, "Hex Web": 0 }
 			},
 			factor: {
 				HP: { Constitution: 20, Level: 12 },
@@ -926,7 +926,7 @@ const HoSData = {
 						SP: [0, 10, 18, 26, 34, 42, 50, 58, 66, 74, 82]
 					},
 					curse: {
-						Aromr: [0, 1, 2, 3, 4, 6, 8, 10, 12, 14, 16],
+						Armor: [0, 1, 2, 3, 4, 6, 8, 10, 12, 14, 16],
 						"Fire Resist": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12],
 						"On-Death Heal": [0, 8, 16, 32, 48, 64, 78, 96, 120, 160, 200]
 					},
@@ -959,11 +959,11 @@ const HoSData = {
 						range: 4,
 						turns: [0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
 						AOE: [0, 1, 5, 5, 9, 9, 9, 9, 9, 9, 9],
-						targets: [0, 1, 5, 5, 9, 9, 9, 9, 9, 9, 9]
+						targets: 0
 					},
 					factor: {
 						turns: { Conjuring: 1 },
-						targets: { Sorcery: [0, 1, 5, 5, 9, 9, 9, 9, 9, 9, 9] }
+						targets: { Sorcery: 1 }
 					}
 				},
 				"Quagmire": {
@@ -983,12 +983,13 @@ const HoSData = {
 						range: [0, 5, 5, 5, 5, 5, 5, 6, 6, 6, 7],
 						"Death Radius": [0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 5],
 						"Death Curse Turns": [0, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3],
-						turns: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-						targets: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+						turns: 3,
+						targets: 0,
+						AOE: [0, 5, 5, 5, 5, 5, 9, 9, 9, 9, 9]
 					},
 					factor: {
 						turns: { Conjuring: 1 },
-						targets: { Conjuring: [0, 5, 5, 5, 5, 5, 9, 9, 9, 9, 9] }
+						targets: { Conjuring: 1 }
 					},
 				},
 				"Blinding Strike": {
@@ -1015,12 +1016,13 @@ const HoSData = {
 						AP: 3,
 						SP: [0, 8, 12, 18, 24, 30, 36, 42, 50, 58, 64],
 					},
-      					info: {
+      				info: {
 						range: [0, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6],
 						spread: [0, 1, 1, 2, 2, 2, 3, 3, 4, 4, 4],
-						turns: [0, 1, 2, 2, 3, 4, 4, 4, 4, 5, 5]
+						turns: [0, 1, 2, 2, 3, 4, 4, 4, 4, 5, 5],
+						targets: 0
 					},
-					factor: { targets: { Lore: [0, 1, 1, 2, 2, 2, 3, 3, 4, 4, 4] } } 
+					factor: { targets: { Lore: 1 } } 
 				},
 				"Malediction": {
 					type: "Death-Curse",
