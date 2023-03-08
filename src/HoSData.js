@@ -843,6 +843,7 @@ const HoSData = {
 						AOE: [0, 4, 4, 4, 4, 4, 4, 4, 6, 6, 6],
 						turns: 3
 					},
+					factor: {}
 				},
 				"Bones of the Earth": {
 					type: "Heal",
