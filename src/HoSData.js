@@ -1005,7 +1005,7 @@ const HoSData = {
 					},
 					info: {
 						turns: 3
-					}
+					},
 					factor: { }
 				},
 				"Hex Web": {
