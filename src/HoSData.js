@@ -820,7 +820,7 @@ const HoSData = {
 					level: 0,
 					cost: {
 						AP: "W",
-						SP: [0, 8, 12, 18, 24, 30, 36, 42, 50, 58, 64]
+						SP: [0, 3, 5, 7, 10, 12, 14, 17, 20, 23, 26]
 					},
 					attack: {
 						"Earth Dmg": [0, 4, 12, 18, 26, 34, 46, 56, 66, 78, 90],
@@ -833,7 +833,11 @@ const HoSData = {
 					level: 12,
 					cost: {
 						AP: "W",
-						SP: [0, 8, 12, 18, 24, 30, 36, 42, 50, 58, 64]
+						SP: [0, 6, 10, 14, 18, 23, 28, 34, 38, 42, 48]
+					},
+					attack: {
+						Accuracy: [0, 3, 4, 5, 6, 7, 7, 8, 8, 9, 10],
+						Damage: [0, 6, 8, 10, 12, 14, 16, 18, 20, 26, 32]
 					},
 					curse: {
 						"Ice Resist": [0, 2, 3, 4, 5, 6, 8, 12, 14, 16, 18],
@@ -887,7 +891,7 @@ const HoSData = {
 						SP: [0, 8, 12, 18, 24, 30, 36, 42, 50, 58, 64]
 					},
 					self: {
-						"Earth Dmg": [0, 3, 4, 5, 7, 9, 12, 15, 18, 21, 24],
+						"Earth Dmg": [0, 4, 5, 7, 9, 12, 15, 18, 22, 28, 34],
 						"Armor": [0, 2, 3, 4, 6, 8, 10, 12, 14, 16, 18],
 						"SP Drain %": [0, 2, 3, 4, 6, 8, 10, 12, 14, 16, 18]
 					},
@@ -915,7 +919,7 @@ const HoSData = {
 					},
 					factor: {
 						turns: { Conjuring: 1 },
-						targets: { Conjuring: [0, 5, 5, 5, 5, 5, 9, 9, 9, 9, 9] }
+						targets: { Sorcery: [0, 5, 5, 5, 5, 5, 9, 9, 9, 9, 9] }
 					},
 				},
 				"Lifeforce Regeneration": {
@@ -928,7 +932,7 @@ const HoSData = {
 					curse: {
 						Armor: [0, 1, 2, 3, 4, 6, 8, 10, 12, 14, 16],
 						"Fire Resist": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12],
-						"On-Death Heal": [0, 8, 16, 32, 48, 64, 78, 96, 120, 160, 200]
+						"On-Death Heal": [0, 8, 12, 18, 26, 36, 46, 58, 70, 82, 100]
 					},
 					info: {
 						turns: 3,
@@ -937,7 +941,8 @@ const HoSData = {
 						"Death Radius": [0, 1, 2, 2, 2, 3, 3, 4, 4, 4, 5]
 					},
 					factor: {
-						turns: { Conjuring: 1 }
+						turns: { Conjuring: 1 },
+						"On-Death Heal": { Lore: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }
 					}
 				},
 				"Leyline Gravity": {
@@ -999,10 +1004,14 @@ const HoSData = {
 						AP: "W",
 						SP: [0, 8, 12, 18, 24, 30, 36, 42, 50, 58, 64]
 					},
+					attack: {
+						Accuracy: [0, 5, 6, 7, 8, 9, 10, 11, 13, 15, 20],
+						Damage: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+					},
 					curse: {
 						Accuracy: [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13],
 						Damage: [0, 8, 10, 14, 18, 20, 24, 26, 30, 34, 40],
-						AP: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+						AP: [0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2]
 					},
 					info: {
 						turns: 3
@@ -1011,7 +1020,7 @@ const HoSData = {
 				},
 				"Hex Web": {
 					type: "Virulant Curse",
-					level: 0,
+					level: 18,
 					cost: {
 						AP: 3,
 						SP: [0, 8, 12, 18, 24, 30, 36, 42, 50, 58, 64],
@@ -1034,7 +1043,7 @@ const HoSData = {
 					curse: {
 						Damage: [0, 2, 4, 6, 8, 12, 16, 20, 24, 28, 32],
 						"Earth Resist": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12],
-						"On-Death Damage": [0, 8, 16, 32, 64, 128, 156, 186, 256, 300, 362]
+						"On-Death Damage": [0, 8, 14, 20, 30, 44, 60, 82, 108, 140, 184]
 					},
 					info: {
 						range: [0, 5, 5, 5, 5, 5, 5, 6, 6, 6, 7],
@@ -1043,7 +1052,8 @@ const HoSData = {
 						"Death Radius": [0, 1, 1, 2, 2, 3, 3, 3, 3, 3, 3]
 					},
 					factor: {
-						turns: { Lore: 1 }
+						turns: { Lore: 1 },
+						"On-Death Damage": { Sorcery: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }
 					}
 				}
 			}
